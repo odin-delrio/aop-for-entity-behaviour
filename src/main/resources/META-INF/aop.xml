@@ -3,7 +3,7 @@
 
     <weaver options="-XnoInline -verbose -showWeaveInfo -Xlint:ignore -Xset:weaveJavaPackages=true,weaveJavaxPackages=true">
         <!-- only weave classes in our application-specific packages -->
-        <include within="org.odindelrio.*"/>
+        <include within="org.odindelrio..*"/>
     </weaver>
 
     <aspects>

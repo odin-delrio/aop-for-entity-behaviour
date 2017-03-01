@@ -18,11 +18,8 @@ Trying to follow DDD, I want to test a way to avoid anemic models, leading in se
 
 ###Run (WIP)
 ```bash
-# According to doc this should work
-./gradlew clean build && java -javaagent:libs/spring-instrument-4.3.6.RELEASE.jar -jar build/libs/ddd-aop-entity-behaviour-1.0-SNAPSHOT.jar
-
 # Searching for more info I went to something like: (https://github.com/jwilsoncredera/spring-aop-blog)
-./gradlew clean build && java -javaagent:libs/spring-instrument-4.3.6.RELEASE.jar -javaagent:libs/aspectjweaver-1.8.10.jar -jar build/libs/ddd-aop-entity-behaviour-1.0-SNAPSHOT.jar
+./gradlew clean build && java -javaagent:libs/aspectjweaver-1.8.10.jar -javaagent:libs/spring-instrument-4.3.6.RELEASE.jar -jar build/libs/ddd-aop-entity-behaviour-1.0-SNAPSHOT.jar
 ```
 
 ###Test
@@ -32,7 +29,7 @@ curl -XPUT --header "Content-Type: application/json" localhost:8080/users/1/foll
 ```
 
 ### Current status
-After making the example curl call a NPE is thrown, when AOP with LTW is working should be fixed due to the repository injection in the entity.
+It's working!
 
 - [Aspect declaration](/src/main/java/org/odindelrio/dddaopentitybehaviour/infrastructure/spring/configuration/FollowerAspect.java)
 - [Entity without repository](/src/main/java/org/odindelrio/dddaopentitybehaviour/domain/Follower.java)
