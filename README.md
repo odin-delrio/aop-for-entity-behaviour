@@ -16,9 +16,13 @@ Trying to follow DDD, I want to test a way to avoid anemic models, leading in se
 
 - First attempt to use the LTW is not working...
 
-###Run
+###Run (WIP)
 ```bash
+# According to doc this should work
 ./gradlew clean build && java -javaagent:libs/spring-instrument-4.3.6.RELEASE.jar -jar build/libs/ddd-aop-entity-behaviour-1.0-SNAPSHOT.jar
+
+# Searching for more info I went to something like: (https://github.com/jwilsoncredera/spring-aop-blog)
+./gradlew clean build && java -javaagent:libs/spring-instrument-4.3.6.RELEASE.jar -javaagent:libs/aspectjweaver-1.8.10.jar -jar build/libs/ddd-aop-entity-behaviour-1.0-SNAPSHOT.jar
 ```
 
 ###Test

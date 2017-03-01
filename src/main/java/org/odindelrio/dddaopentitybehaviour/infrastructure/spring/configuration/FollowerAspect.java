@@ -26,6 +26,10 @@ public class FollowerAspect {
   @Around("execution(* org.odindelrio.dddaopentitybehaviour.domain.Follower.follow(..))")
   public Object aroundFollow(ProceedingJoinPoint pjp) throws Throwable {
 
+    System.out.println("AROUND Follow Entity follow()");
+
+    // First attempt to inject repository...
+    System.out.println("Injecting Repository to entity...");
     ((Follower) pjp.getThis()).followersRepository = repository;
 
     return pjp.proceed();

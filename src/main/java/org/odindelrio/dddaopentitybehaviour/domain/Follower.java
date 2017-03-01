@@ -1,11 +1,10 @@
 package org.odindelrio.dddaopentitybehaviour.domain;
 
 import org.odindelrio.dddaopentitybehaviour.domain.exception.FollowerCantFollowHimSelfException;
-import org.odindelrio.dddaopentitybehaviour.infrastructure.InMemoryFollowersRepository;
 
 public class Follower {
   private final String followerId;
-  public FollowersRepository followersRepository = new InMemoryFollowersRepository();
+  public FollowersRepository followersRepository;
 
   public Follower(String followerId) {
     this.followerId = followerId;
