@@ -38,4 +38,7 @@ hs_err_pid*
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
 
+# Avoid exclude the spring-instrument.jar
+!libs/*.jar
+
 .idea

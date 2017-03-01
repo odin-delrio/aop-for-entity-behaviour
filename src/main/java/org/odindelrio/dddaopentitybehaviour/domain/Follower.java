@@ -20,6 +20,8 @@ public class Follower {
       throw new FollowerCantFollowHimSelfException();
     }
 
+    System.out.println("INSIDE Follower.follow() method");
+
     this.followersRepository.persistFollower(this, followable);
   }
 }
