@@ -30,3 +30,9 @@ Trying to follow DDD, I want to test a way to avoid anemic models, leading in se
 # manually with curl
 curl -XPUT --header "Content-Type: application/json" localhost:8080/users/1/followers -d '{"follower_id": 2}' -v
 ```
+
+### Current status
+After making the example curl call a NPE is thrown, when AOP with LTW is working should be fixed due to the repository injection in the entity.
+
+- [Aspect declaration](/src/main/java/org/odindelrio/dddaopentitybehaviour/infrastructure/spring/configuration/FollowerAspect.java)
+- [Entity without repository](/src/main/java/org/odindelrio/dddaopentitybehaviour/domain/Follower.java)
