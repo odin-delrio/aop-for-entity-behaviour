@@ -4,7 +4,7 @@ import org.odindelrio.dddaopentitybehaviour.domain.exception.FollowerCantFollowH
 
 public class Follower {
   private final String followerId;
-  public FollowersRepository followersRepository;
+  public transient FollowersRepository followersRepository;
 
   public Follower(String followerId) {
     this.followerId = followerId;
