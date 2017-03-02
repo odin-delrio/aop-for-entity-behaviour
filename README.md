@@ -32,6 +32,13 @@ Trying to follow DDD, I want to test a way to avoid anemic models, leading in se
 curl -XPUT --header "Content-Type: application/json" localhost:8080/users/1/followers/2 -v
 ```
 
+### Good feelings
+IntelliJ has a good support for aspects, and the String syntax in the annotation is highlighted, navigable...
+
+![Aspect class](/docs/aspect-class.png)
+
+Spring AOP is really fast, but when the aspectj agent is working bootstrap is 3 times slower...
+
 ### Current status
 It's working!
 
