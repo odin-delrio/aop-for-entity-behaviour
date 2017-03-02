@@ -23,13 +23,18 @@ Trying to follow DDD, I want to test a way to avoid anemic models, leading in se
 ###Run
 ```bash
 # Finally both agents are needed, found example in (https://github.com/jwilsoncredera/spring-aop-blog)
-./gradlew clean build && java -javaagent:libs/aspectjweaver-1.8.10.jar -javaagent:libs/spring-instrument-4.3.6.RELEASE.jar -jar build/libs/ddd-aop-entity-behaviour-1.0-SNAPSHOT.jar
+./gradlew build && java -javaagent:libs/aspectjweaver-1.8.10.jar -javaagent:libs/spring-instrument-4.3.6.RELEASE.jar -jar build/libs/ddd-aop-entity-behaviour-1.0-SNAPSHOT.jar
+
+# Or use the sh with that calls
+./run.sh
 ```
 
 ###Test
 ```bash
 # manually with curl
 curl -XPUT --header "Content-Type: application/json" localhost:8080/users/1/followers/2 -v
+
+# Then STDOUT should print some messages telling what is going on...
 ```
 
 ### Good feelings
