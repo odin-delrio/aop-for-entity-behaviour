@@ -2,13 +2,11 @@ package org.odindelrio.dddaopentitybehaviour.infrastructure.spring.controller;
 
 import org.odindelrio.dddaopentitybehaviour.application.followusecase.FollowRequest;
 import org.odindelrio.dddaopentitybehaviour.application.followusecase.FollowUseCase;
-import org.odindelrio.dddaopentitybehaviour.infrastructure.spring.http.FollowRequestBody;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,12 +20,12 @@ public class FollowController {
     this.followUseCase = followUseCase;
   }
 
-  @PutMapping("/users/{targetUserId}/followers")
+  @PutMapping("/users/{followableUserId}/followers/{followerUserId}")
   public ResponseEntity follow(
-      @RequestBody FollowRequestBody request,
-      @PathVariable("targetUserId") String targetUserId
+      @PathVariable("followableUserId") String followableUserId,
+      @PathVariable("followerUserId") String followerUserId
   ) {
-    FollowRequest followRequest = new FollowRequest(request.getFollowerId(), targetUserId);
+    FollowRequest followRequest = new FollowRequest(followerUserId, followableUserId);
     followUseCase.execute(followRequest);
 
     return ResponseEntity.status(HttpStatus.CREATED).build();

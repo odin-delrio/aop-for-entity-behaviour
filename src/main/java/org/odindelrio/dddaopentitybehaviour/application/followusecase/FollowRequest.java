@@ -2,18 +2,18 @@ package org.odindelrio.dddaopentitybehaviour.application.followusecase;
 
 public class FollowRequest {
   private final String followerId;
-  private final String targetUserId;
+  private final String followableId;
 
-  public FollowRequest(String followerId, String targetUserId) {
+  public FollowRequest(String followerId, String followableId) {
     this.followerId = followerId;
-    this.targetUserId = targetUserId;
+    this.followableId = followableId;
   }
 
   public String getFollowerId() {
     return followerId;
   }
 
-  public String getTargetUserId() {
-    return targetUserId;
+  public String getFollowableId() {
+    return followableId;
   }
 }

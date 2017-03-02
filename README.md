@@ -7,6 +7,8 @@ Inject repository to the entity using AOP.
 ###Why?
 Trying to follow DDD, I want to test a way to avoid anemic models, leading in self-explanatory use cases.
 
+![Follow use case code](/docs/follow-use-case.png)
+
 ###Found problems
 - First steps with Spring AOP are easy...
   
@@ -14,22 +16,25 @@ Trying to follow DDD, I want to test a way to avoid anemic models, leading in se
 
   Spring AOP works creating Proxys for classes that are registered in the Dependency Injection Container.
 
-- First attempt to use the LTW is not working...
+- Dealing with java agents could be problematic to lauch tests, launch from IDE...
 
-###Run (WIP)
+- First attempt to use the LTW was not working... Examples and documentation found was not very good.
+
+###Run
 ```bash
-# Searching for more info I went to something like: (https://github.com/jwilsoncredera/spring-aop-blog)
+# Finally both agents are needed, found example in (https://github.com/jwilsoncredera/spring-aop-blog)
 ./gradlew clean build && java -javaagent:libs/aspectjweaver-1.8.10.jar -javaagent:libs/spring-instrument-4.3.6.RELEASE.jar -jar build/libs/ddd-aop-entity-behaviour-1.0-SNAPSHOT.jar
 ```
 
 ###Test
 ```bash
 # manually with curl
-curl -XPUT --header "Content-Type: application/json" localhost:8080/users/1/followers -d '{"follower_id": 2}' -v
+curl -XPUT --header "Content-Type: application/json" localhost:8080/users/1/followers/2 -v
 ```
 
 ### Current status
 It's working!
 
+- [Use case](/src/main/java/org/odindelrio/dddaopentitybehaviour/application/followusecase/FollowUseCase.java)
 - [Aspect declaration](/src/main/java/org/odindelrio/dddaopentitybehaviour/infrastructure/spring/configuration/FollowerAspect.java)
 - [Entity without repository](/src/main/java/org/odindelrio/dddaopentitybehaviour/domain/Follower.java)

@@ -7,7 +7,7 @@ public class FollowUseCase {
 
   public void execute(FollowRequest request) {
     Follower follower = new Follower(request.getFollowerId());
-    Followable followable = new Followable(request.getTargetUserId());
+    Followable followable = new Followable(request.getFollowableId());
 
     follower.follow(followable);
   }
