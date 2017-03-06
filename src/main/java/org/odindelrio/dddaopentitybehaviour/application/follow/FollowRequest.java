@@ -1,4 +1,4 @@
-package org.odindelrio.dddaopentitybehaviour.application.followusecase;
+package org.odindelrio.dddaopentitybehaviour.application.follow;
 
 public class FollowRequest {
   private final String followerId;

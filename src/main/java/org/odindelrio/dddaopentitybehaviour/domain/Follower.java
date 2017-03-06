@@ -23,4 +23,22 @@ public class Follower {
 
     this.followersRepository.persistFollower(this, followable);
   }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    Follower follower = (Follower) o;
+
+    if (followerId != null ? !followerId.equals(follower.followerId) : follower.followerId != null) return false;
+    return followersRepository != null ? followersRepository.equals(follower.followersRepository) : follower.followersRepository == null;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = followerId != null ? followerId.hashCode() : 0;
+    result = 31 * result + (followersRepository != null ? followersRepository.hashCode() : 0);
+    return result;
+  }
 }

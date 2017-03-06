@@ -1,4 +1,4 @@
-package org.odindelrio.dddaopentitybehaviour.application.followusecase;
+package org.odindelrio.dddaopentitybehaviour.application.follow;
 
 import org.odindelrio.dddaopentitybehaviour.domain.Followable;
 import org.odindelrio.dddaopentitybehaviour.domain.Follower;
